@@ -1,6 +1,7 @@
 @extends('welcome')
 @section('content')
 <link rel="stylesheet" href="{{asset('/css/blog.css')}}">
+@include('partials._search')
 <div class="blog_container">
 @unless (count($blogs)==0)
 @foreach ($blogs as $blog)
