@@ -11,7 +11,8 @@
     <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
   </div>
   <div class="card__body">
-    <span class="tag tag-blue">{{$blog->tags}}</span>
+    {{-- <span class="tag tag-blue">{{$blog->tags}}</span> --}}
+    <x-blog-tags :tagsCsv="$blog->tags" />
     <a href="blogs/{{$blog->id}}"><h4>{{$blog->title}}</h4></a>
     <p>{{$blog->description}}</p>
   </div>
