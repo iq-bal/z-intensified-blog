@@ -8,31 +8,37 @@ use App\Http\Controllers\UserController;
 Route::get('/', [BlogController::class,'index']);
 
 // form for creating blog post
-Route::get('/blogs/create',[BlogController::class,'create']);
+Route::get('/blogs/create',[BlogController::class,'create'])->middleware('auth');
 
 // store blog post
-Route::post('/blogs',[BlogController::class,'store']); 
+Route::post('/blogs',[BlogController::class,'store'])->middleware('auth'); 
 
 // show edit form 
-Route::get('/blogs/{blog}/edit',[BlogController::class,'edit']);
+Route::get('/blogs/{blog}/edit',[BlogController::class,'edit'])->middleware('auth');
 
 // update blog
-Route::put('/blogs/{blog}', [BlogController::class,'update']);
+Route::put('/blogs/{blog}', [BlogController::class,'update'])->middleware('auth');
 
 // delete a blog
-Route::delete('/blogs/{blog}', [BlogController::class,'destroy']);
+Route::delete('/blogs/{blog}', [BlogController::class,'destroy'])->middleware('auth');
 
 //get single blog
 Route::get('/blogs/{blog}', [BlogController::class,'show']);
 
-
 // show register/create form 
-Route::get('/register',[UserController::class,'create']);
+Route::get('/register',[UserController::class,'create'])->middleware('guest');
+
+// create new user
+Route::post('/users',[UserController::class, 'store']);
+
+// Log User out 
+Route::post('/logout',[UserController::class,'logout'])->middleware('auth')->middleware('auth');
 
 //show login form
-Route::get('/login',[UserController::class,'login']);
+Route::get('/login',[UserController::class,'login'])->middleware('guest')->name('login');
 
-
+// log in user
+Route::post('/users/authenticate',[UserController::class,'authenticate']);
 
 
 

@@ -11,7 +11,7 @@ class BlogController extends Controller
         // dd(request());
         return view('blog',[
             // 'blogs'=>Blog::all()
-            'blogs'=>Blog::latest()->filter(request(['tag','search']))->get()
+            'blogs'=>Blog::latest()->filter(request(['tag','search']))->paginate(6)
         ]);
     }
 

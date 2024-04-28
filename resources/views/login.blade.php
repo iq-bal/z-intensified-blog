@@ -2,7 +2,8 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('/css/login.css')}}">
 <div class="login-container">
-    <form class="login-form">
+    <form action="/users/authenticate" method="POST" class="login-form">
+        @csrf
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter your email address">
 

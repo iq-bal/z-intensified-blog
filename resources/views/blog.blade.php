@@ -1,6 +1,18 @@
 @extends('welcome')
 @section('content')
 <link rel="stylesheet" href="{{asset('/css/blog.css')}}">
+<script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            laravel: "#ef3b2d",
+                        },
+                    },
+                },
+            };
+        </script>
 @include('partials._about')
 @include('partials._search')
 <div class="blog_container">
@@ -32,5 +44,8 @@
 @else
 <p>No Blog Post Found</p>    
 @endunless
+</div>
+<div class="mt-6 p-4">
+  {{$blogs->links()}}
 </div>
 @endsection
