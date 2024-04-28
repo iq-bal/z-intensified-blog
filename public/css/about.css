@@ -1,0 +1,41 @@
+
+/* about section */
+.about-section {
+    padding: 50px 0;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+  
+  .container {
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 0 20px; /* Add padding to match other components */
+  }
+  
+  .about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333; /* Text color */
+  }
+  
+  .about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #666; /* Text color */
+  }
+  
+  .about-section p:last-child {
+    margin-bottom: 0; /* Remove margin bottom from last paragraph */
+  }
+  
+  .about-section a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+  
+  .about-section a:hover {
+    color: #0056b3; /* Hover color */
+  }
+  

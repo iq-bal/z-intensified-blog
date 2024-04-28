@@ -1,6 +1,7 @@
 @extends('welcome')
 @section('content')
 <link rel="stylesheet" href="{{asset('/css/blog.css')}}">
+@include('partials._about')
 @include('partials._search')
 <div class="blog_container">
 @unless (count($blogs)==0)
@@ -11,7 +12,7 @@
   </div>
   <div class="card__body">
     <span class="tag tag-blue">{{$blog->tags}}</span>
-    <h4>{{$blog->title}}</h4>
+    <a href="blogs/{{$blog->id}}"><h4>{{$blog->title}}</h4></a>
     <p>{{$blog->description}}</p>
   </div>
   <div class="card__footer">

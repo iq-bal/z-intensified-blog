@@ -6,11 +6,10 @@
   padding: 0;
   margin: 0;
 }
-
 body {
   font-family: "Quicksand", sans-serif;
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
   height: 100vh;
   background: #7f7fd5;
   background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
@@ -22,6 +21,7 @@ body {
   justify-content: center;
   max-width: 1200px;
   margin-block: 2rem;
+  margin: 2rem auto;
   gap: 2rem;
 }
 
@@ -39,8 +39,7 @@ img {
   box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1em;
   background: #ECE9E6;
-background: linear-gradient(to right, #FFFFFF, #ECE9E6);
-
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
 
 
@@ -104,4 +103,10 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
 
 .user__info > small {
   color: #666;
+}
+
+
+a{
+  text-decoration: none;
+  color: black;
 }

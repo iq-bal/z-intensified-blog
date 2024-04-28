@@ -10,10 +10,10 @@
 <body>
     <header>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            {{-- <li class="center"><a href="#">Portfolio</a></li> --}}
+            <li><a href="/">Home</a></li>
             <li class="upward"><a href="#">Register</a></li>
             <li class="forward"><a href="#">Login</a></li>
+            <li class="center"><a href="#">Create Post</a></li>
         </ul>
     </header>
     
