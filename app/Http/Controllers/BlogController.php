@@ -47,4 +47,33 @@ class BlogController extends Controller
         return redirect('/');
         // ->with('message','Listing created successfully!'); 
     }
+
+    // show edit form
+    public function edit(Blog $blog){
+        return view('edit',['blog'=>$blog]);
+    }
+
+    // update blog
+    public function update(Request $request, Blog $blog){
+        $formFields = $request->validate([
+            'title'=> 'required',
+            'email' => ['required','email'],
+            'tags' => 'required',
+            'description' => 'required',
+            'author'=>'required'
+        ]);
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos','public');
+        }
+        $blog->update($formFields);
+        return back();
+        // ->with('message','Listing updated successfully!'); 
+    }
+
+    // delete a blog
+    public function destroy(Blog $blog){
+        $blog->delete();
+        return redirect('/');
+        // ->with('message','Listing Deleted Succesfully');
+    }
 }

@@ -16,9 +16,6 @@
             <li class="center"><a href="/blogs/create">Create Post</a></li>
         </ul>
     </header>
-
-    
-
     <main>
         @yield('content')
     </main>
