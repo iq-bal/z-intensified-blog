@@ -11,8 +11,8 @@
     <header>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li class="upward"><a href="#">Register</a></li>
-            <li class="forward"><a href="#">Login</a></li>
+            <li class="upward"><a href="/register">Register</a></li>
+            <li class="forward"><a href="/login">Login</a></li>
             <li class="center"><a href="/blogs/create">Create Post</a></li>
         </ul>
     </header>
@@ -26,6 +26,6 @@
     <footer>
         <p>©All rights reserved.</p>
         <p><a href="create_post.html">Create a Post</a></p>
-      </footer>
+    </footer>
 </body>
 </html>

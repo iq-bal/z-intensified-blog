@@ -98,15 +98,16 @@ footer {
   width: 100%;
 }
 
-/* Link styling */
+
 footer a {
   color: #fff;
   text-decoration: none;
 }
 
-/* Hover effect for link */
+
 footer a:hover {
   text-decoration: underline;
 }
+
 
 
