@@ -13,7 +13,8 @@
 
 .search-container input[type="text"] {
   padding: 10px;
-  width: 350px; /* Increase width */
+  width: 100%; /* Take full width */
+  max-width: 350px; /* Limit maximum width */
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -31,4 +32,12 @@
 
 .search-container button:hover {
   background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .search-container input[type="text"] {
+    width: 100%;
+    max-width: none;
+  }
 }
