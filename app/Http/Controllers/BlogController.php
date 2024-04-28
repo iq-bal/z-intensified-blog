@@ -21,4 +21,30 @@ class BlogController extends Controller
             'blog' => $blog
         ]);
     }
+
+    // page for creating blog
+    public function create(){
+        return view('create'); 
+    }
+
+    // store blog post
+    public function store(Request $request){
+        // dd(request()->all()); 
+        // photo upload er jonno fileSystem a public kore dite hbe
+        $formFields = $request->validate([
+            'title'=> 'required',
+            'email' => ['required','email'],
+            'tags' => 'required',
+            'description' => 'required',
+            'author'=>'required'
+        ]);
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos','public');
+        }
+        // php artisan storage:link
+        Blog::create($formFields);
+
+        return redirect('/');
+        // ->with('message','Listing created successfully!'); 
+    }
 }

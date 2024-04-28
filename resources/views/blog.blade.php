@@ -8,13 +8,15 @@
 @foreach ($blogs as $blog)
 <div class="card">
   <div class="card__header">
-    <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
+    <img src="{{$blog->logo? asset('storage/'.$blog->logo):'https://source.unsplash.com/600x400/?computer'}}" alt="card__image" class="card__image" width="600">
   </div>
   <div class="card__body">
     {{-- <span class="tag tag-blue">{{$blog->tags}}</span> --}}
     <x-blog-tags :tagsCsv="$blog->tags" />
     <a href="blogs/{{$blog->id}}"><h4>{{$blog->title}}</h4></a>
-    <p>{{$blog->description}}</p>
+    <p>
+      {{ strlen($blog->description) > 120 ? substr($blog->description, 0, 120) . '...' : $blog->description }}
+    </p>
   </div>
   <div class="card__footer">
     <div class="user">

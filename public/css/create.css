@@ -1,0 +1,39 @@
+/* Custom styling for the form */
+.blog-form {
+    max-width: 600px;
+    margin: 20px auto; /* Add margin top and bottom */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px; /* Increase bottom margin for labels */
+}
+
+.blog-form input[type="text"],
+.blog-form input[type="file"],
+.blog-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Increase bottom margin for input fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.blog-form input[type="submit"] {
+    background-color: #007bff; /* Blue submit button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.blog-form input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
