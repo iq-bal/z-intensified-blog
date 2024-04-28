@@ -42,7 +42,7 @@
     <!-- Site footer -->
     <footer>
         <p>©All rights reserved.</p>
-        <p><a href="create_post.html">Create a Post</a></p>
+        <p><a href="/blogs/create">Create a Post</a></p>
     </footer>
 </body>
 </html>
