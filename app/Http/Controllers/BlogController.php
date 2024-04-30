@@ -57,6 +57,9 @@ class BlogController extends Controller
 
     // update blog
     public function update(Request $request, Blog $blog){
+        if($blog->user_id!=auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
         $formFields = $request->validate([
             'title'=> 'required',
             'email' => ['required','email'],
@@ -74,12 +77,18 @@ class BlogController extends Controller
 
     // delete a blog
     public function destroy(Blog $blog){
+        
+        if($blog->user_id!=auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
+
         $blog->delete();
         return redirect('/');
         // ->with('message','Listing Deleted Succesfully');
     }
 
     public function manage(){
-        return view('manage');
+        // dd(auth()->user()->blogs()->get());
+        return view('manage',['blogs'=>auth()->user()->blogs()->get()]);
     }
 }
