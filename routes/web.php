@@ -22,6 +22,9 @@ Route::put('/blogs/{blog}', [BlogController::class,'update'])->middleware('auth'
 // delete a blog
 Route::delete('/blogs/{blog}', [BlogController::class,'destroy'])->middleware('auth');
 
+// manage listing route
+Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');
+
 //get single blog
 Route::get('/blogs/{blog}', [BlogController::class,'show']);
 
@@ -39,6 +42,4 @@ Route::get('/login',[UserController::class,'login'])->middleware('guest')->name(
 
 // log in user
 Route::post('/users/authenticate',[UserController::class,'authenticate']);
-
-
 

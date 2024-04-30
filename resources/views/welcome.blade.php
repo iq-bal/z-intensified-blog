@@ -20,7 +20,7 @@
             <li><a href="/">Home</a></li>
             <li class="center"><a href="/blogs/create">+Blog</a></li>
             @auth
-                <li class="upward"><a href="">Manage</a></li>
+                <li class="upward"><a href="/blogs/manage">Manage</a></li>
                 <li class="forward">
                     <form action="/logout" method="POST" class="inline" style="display: inline-block; margin-right: 10px;">
                         @csrf

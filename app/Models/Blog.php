@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title','tags','description','author','logo','email'];
+    protected $fillable=['title','tags','description','author','logo','email','user_id'];
     public function scopeFilter($query, array $filters){
         
         if($filters['tag'] ?? false){
@@ -25,4 +25,10 @@ class Blog extends Model
             ;
         }
     }
+    // Relationship to user
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
+        // one blog belong to only one user
+    }
+
 }

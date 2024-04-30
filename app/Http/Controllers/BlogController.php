@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -41,6 +42,7 @@ class BlogController extends Controller
         if($request->hasFile('logo')){
             $formFields['logo'] = $request->file('logo')->store('logos','public');
         }
+        $formFields['user_id'] = auth()->id();
         // php artisan storage:link
         Blog::create($formFields);
 
@@ -75,5 +77,9 @@ class BlogController extends Controller
         $blog->delete();
         return redirect('/');
         // ->with('message','Listing Deleted Succesfully');
+    }
+
+    public function manage(){
+        return view('manage');
     }
 }

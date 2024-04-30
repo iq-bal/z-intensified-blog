@@ -44,4 +44,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relationship with blogs
+    public function blogs(){
+        return $this->hasMany(Blog::class,'user_id');
+        // one user can have multiple blogs, hasMany
+    }
 }
