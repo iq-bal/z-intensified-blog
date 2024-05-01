@@ -25,10 +25,15 @@ class Blog extends Model
             ;
         }
     }
-    // Relationship to user
+    // Relationship with user
     public function user(){
         return $this->belongsTo(User::class,'user_id');
         // one blog belong to only one user
     }
 
+    // relationship with comment
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+    
 }

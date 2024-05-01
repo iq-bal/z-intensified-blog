@@ -11,13 +11,13 @@
     <input type="text" id="tags" name="tags" placeholder="Enter tags separated by commas" value="{{$blog->tags}}">
 
     <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" placeholder="Enter a description of your blog post">{{$blog->description}}</textarea>
+    <textarea id="description" name="description" rows="9" placeholder="Enter a description of your blog post">{{$blog->description}}</textarea>
 
-    <label for="author">Author:</label>
-    <input type="text" id="author" name="author" placeholder="Enter your name" value="{{$blog->author}}">
+    {{-- <label for="author">Author:</label>
+    <input type="text" id="author" name="author" placeholder="Enter your name" value="{{$blog->author}}"> --}}
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" placeholder="Enter your email address" value="{{$blog->email}}">
+    {{-- <label for="email">Email:</label>
+    <input type="text" id="email" name="email" placeholder="Enter your email address" value="{{$blog->email}}"> --}}
 
     <label for="image">Upload Image:</label>
     <input type="file" id="image" name="logo">

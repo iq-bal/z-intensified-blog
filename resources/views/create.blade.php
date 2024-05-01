@@ -16,22 +16,22 @@
     @enderror
 
     <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" placeholder="Enter a description of your blog post">{{old('description')}}</textarea>
+    <textarea id="description" name="description" rows="10" placeholder="Enter a description of your blog post">{{old('description')}}</textarea>
     @error('description')
     <p style="color: red; font-size: 14px;">{{$message}}</p>
     @enderror
 
-    <label for="author">Author:</label>
+    {{-- <label for="author">Author:</label>
     <input type="text" id="author" name="author" placeholder="Enter your name" value="{{old('author')}}">
     @error('author')
     <p style="color: red; font-size: 14px;">{{$message}}</p>
-    @enderror
+    @enderror --}}
 
-    <label for="email">Email:</label>
+    {{-- <label for="email">Email:</label>
     <input type="text" id="email" name="email" placeholder="Enter your email address" value="{{old('email')}}">
     @error('email')
     <p style="color: red; font-size: 14px;">{{$message}}</p>
-    @enderror
+    @enderror --}}
 
     <label for="image">Upload Image:</label>
     <input type="file" id="image" name="logo">

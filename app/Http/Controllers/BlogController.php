@@ -18,8 +18,10 @@ class BlogController extends Controller
 
     // show single listings
     public function show(Blog $blog){
+        // dd(Blog::find($blog->id)->comments);
         return view('show', [
-            'blog' => $blog
+            'blog' => $blog,
+            'comments'=>Blog::find($blog->id)->comments
         ]);
     }
 
@@ -34,15 +36,17 @@ class BlogController extends Controller
         // photo upload er jonno fileSystem a public kore dite hbe
         $formFields = $request->validate([
             'title'=> 'required',
-            'email' => ['required','email'],
+            // 'email' => ['required','email'],
             'tags' => 'required',
             'description' => 'required',
-            'author'=>'required'
+            // 'author'=>'required'
         ]);
         if($request->hasFile('logo')){
             $formFields['logo'] = $request->file('logo')->store('logos','public');
         }
         $formFields['user_id'] = auth()->id();
+        $formFields['email'] = auth()->user()->email; 
+        $formFields['author'] = auth()->user()->name; 
         // php artisan storage:link
         Blog::create($formFields);
 
@@ -62,10 +66,10 @@ class BlogController extends Controller
         }
         $formFields = $request->validate([
             'title'=> 'required',
-            'email' => ['required','email'],
+            // 'email' => ['required','email'],
             'tags' => 'required',
             'description' => 'required',
-            'author'=>'required'
+            // 'author'=>'required'
         ]);
         if($request->hasFile('logo')){
             $formFields['logo'] = $request->file('logo')->store('logos','public');
@@ -77,7 +81,7 @@ class BlogController extends Controller
 
     // delete a blog
     public function destroy(Blog $blog){
-        
+
         if($blog->user_id!=auth()->id()){
             abort(403,'Unauthorized Action');
         }

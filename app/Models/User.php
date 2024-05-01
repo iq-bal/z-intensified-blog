@@ -50,4 +50,9 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class,'user_id');
         // one user can have multiple blogs, hasMany
     }
+
+    // Relationship with comments
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -39,4 +39,83 @@
     color: #888888; /* Light gray text color */
     font-style: italic;
   }
-  
+
+
+
+/* comments styling  */
+.comment-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.comment-box h2 {
+  margin-top: 0;
+}
+
+.comment-box form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.comment-box label {
+  font-weight: bold;
+}
+
+.comment-box textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comment-box button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-box button:hover {
+  background-color: #0056b3;
+}
+
+
+/* comment section */
+.comment-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+
+.commenter-name {
+  font-weight: bold;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.commenter-name:hover {
+  text-decoration: underline;
+}
+
+.commenter-email {
+  color: #666;
+  text-decoration: none;
+}
+
+.commenter-email:hover {
+  text-decoration: underline;
+}
+
+.comment-text {
+  margin-top: 5px;
+  color: #333;
+}

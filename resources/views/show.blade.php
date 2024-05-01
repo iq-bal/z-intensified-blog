@@ -19,4 +19,31 @@
         <button type="submit" style="background-color: #dc3545; color: #fff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
     </form> --}}
 </section> 
+
+@auth
+    <div class="comment-box">
+    <h2>Leave a Comment</h2>
+    <form action="/blogs/{{$blog->id}}/comment" method="POST">
+      @csrf
+      <label for="comment">Comment:</label>
+      <textarea id="comment" name="comment" rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+@else
+<div class="comment-box">
+    <p>You must log in to make a comment</p>
+</div>
+@endauth
+  <section class="comment-section">
+    <h2>Comments</h2>
+    @foreach ($comments as $comm)
+    <div class="comment">
+        <a href="/users/{{$comm->user_id}}" class="commenter-name">{{$comm->user->name}}</a> (<a href="mailto:john@example.com" class="commenter-email">john@example.com</a>)
+        <p class="comment-text">{{$comm->comment}}</p>
+      </div>
+    @endforeach
+    <!-- More comments go here -->
+  </section>
+  
 @endsection

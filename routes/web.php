@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
 
 //get all blogs 
@@ -21,6 +22,9 @@ Route::put('/blogs/{blog}', [BlogController::class,'update'])->middleware('auth'
 
 // delete a blog
 Route::delete('/blogs/{blog}', [BlogController::class,'destroy'])->middleware('auth');
+
+// post a comment 
+Route::post('/blogs/{blog}/comment',[CommentController::class,'store']);
 
 // manage listing route
 Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');
