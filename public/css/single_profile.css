@@ -1,0 +1,132 @@
+.profile-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-username {
+  font-size: 28px;
+  margin: 0 0 5px;
+  color: #333;
+}
+
+.profile-email, .profile-topic {
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+}
+
+.profile-bio {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-link {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+.profile-hobbies {
+  margin-top: 30px;
+}
+
+.hobbies-list {
+  list-style: none;
+  padding: 0;
+}
+
+.hobbies-list li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.blog-section {
+  margin-top: 40px;
+}
+
+.blog-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.blog-post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-post-list li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.controversial-factor {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.high {
+  background-color: #ff5722;
+}
+
+.medium {
+  background-color: #03a9f4;
+}
+
+.low {
+  background-color: #4caf50;
+}
+
+.blog-post-list li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+}
+
+.blog-post-list li a:hover {
+  text-decoration: underline;
+  color: #007bff;
+}

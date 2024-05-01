@@ -63,4 +63,13 @@ class UserController extends Controller
         return back()->withErrors(['email'=>'Invalid Credentials'])->onlyInput('email');
     }
 
+    //show single user
+    public function show(User $user){
+        // dd($user);
+        // dd(User::find(3)->blogs);
+        return view('single-profile',[
+            'user'=>$user,
+            'blogs'=>User::find($user->id)->blogs
+        ]);
+    }
 }

@@ -43,7 +43,6 @@
         <p class="comment-text">{{$comm->comment}}</p>
       </div>
     @endforeach
-    <!-- More comments go here -->
   </section>
   
 @endsection

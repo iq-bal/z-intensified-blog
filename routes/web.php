@@ -29,6 +29,19 @@ Route::post('/blogs/{blog}/comment',[CommentController::class,'store']);
 // manage listing route
 Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');
 
+
+
+// single profile , for testing purpose, will be deleted
+
+Route::get('/single-profile',function(){
+    return view('single-profile');
+});
+
+Route::get('all-users',function(){
+    return view('users');
+});
+
+
 //get single blog
 Route::get('/blogs/{blog}', [BlogController::class,'show']);
 
@@ -46,4 +59,7 @@ Route::get('/login',[UserController::class,'login'])->middleware('guest')->name(
 
 // log in user
 Route::post('/users/authenticate',[UserController::class,'authenticate']);
+
+//get single user
+Route::get('/users/{user}',[UserController::class,'show']);
 

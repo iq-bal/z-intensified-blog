@@ -1,0 +1,60 @@
+/* General Styles */
+.user-link {
+    text-decoration: none;
+  }
+  
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .user-directory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  /* User Card Styles */
+  .user-card {
+    width: 300px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .user-info {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .user-name {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .user-description {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .total-posts {
+    margin: 0;
+    font-size: 1em;
+    color: #999;
+  }
+  

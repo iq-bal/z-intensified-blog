@@ -33,6 +33,8 @@
             @else
                 <li class="upward"><a href="/register">Register</a></li>
                 <li class="forward"><a href="/login">Login</a></li>
+                {{-- <li class="forward"><a href="/single-profile">Single Profile</a></li> --}}
+                {{-- <li class="forward"><a href="/all-users">all Profile</a></li> --}}
             @endauth
         </ul>
     </header>
