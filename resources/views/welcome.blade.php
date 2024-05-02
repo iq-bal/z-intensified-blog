@@ -20,14 +20,16 @@
             <li><a href="/">Home</a></li>
             <li class="center"><a href="/blogs/create">+Blog</a></li>
             @auth
-                <li class="upward"><a href="/blogs/manage">Manage</a></li>
+                {{-- <li class="upward"><a href="/blogs/manage">Manage</a></li> --}}
+                <li class="upward"><a href="/users/{{auth()->id()}}">Profile</a></li>
                 <li class="forward">
                     <form action="/logout" method="POST" class="inline" style="display: inline-block; margin-right: 10px;">
                         @csrf
-                        <button type="submit" style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px;">
-                            <i class="fa-solid fa-door-closed"></i>Logout
+                        <button type="submit" style="background-color: #007bff; border: 1px solid #007bff; color: #fff; padding: 8px 16px; border-radius: 5px; cursor: pointer;">
+                            <i class="fa-solid fa-door-closed" style="margin-right: 5px;"></i> Logout
                         </button>
                     </form>
+                    
                     
                 </li>
             @else

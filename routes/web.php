@@ -60,6 +60,12 @@ Route::get('/login',[UserController::class,'login'])->middleware('guest')->name(
 // log in user
 Route::post('/users/authenticate',[UserController::class,'authenticate']);
 
+// form for editing a user
+Route::get('users/{user}/edit',[UserController::class,'edit']);
+
+// update an user information
+Route::put('users/{user}',[UserController::class,'update']);
+
 //get single user
 Route::get('/users/{user}',[UserController::class,'show']);
 

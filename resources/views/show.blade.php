@@ -6,7 +6,11 @@
     <img src="{{$blog->logo? asset('storage/'.$blog->logo):'https://source.unsplash.com/600x400/?computer'}}" alt="Computer Image">
     <h2>{{$blog->title}}</h2>
     <p>{{$blog->description}}</p>
-    <p class="author-info">Author: {{$blog->author}}</p>
+    <p class="author-info">
+        Author: <a href="/users/{{$blog->user_id}}" style="color: #007bff; text-decoration: none;">{{$blog->author}}</a>
+    </p>
+    
+    {{-- <p class="author-info">Author: {{$blog->author}}</p> --}}
     <p class="author-info">Published on: {{$blog->created_at}}</p>
 
     <!-- Edit Link -->

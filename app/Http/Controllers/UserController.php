@@ -72,4 +72,38 @@ class UserController extends Controller
             'blogs'=>User::find($user->id)->blogs
         ]);
     }
+
+    // return form for editing a profile
+    public function edit(User $user){
+        return view('edit-profile',[
+            'user'=>$user
+        ]);
+    }
+
+    // update a user
+    public function update( Request $request, User $user){
+
+        if($user->id!=auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
+        
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'interest' => 'nullable',
+            'bio' => 'nullable',
+            'facebook' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'dp_image' => 'nullable|image',
+            'hobbies' => 'nullable',
+        ]);
+
+        if ($request->hasFile('dp_image')) {
+            $formFields['dp_image'] = $request->file('dp_image')->store('dp_images', 'public');
+        }
+
+        $user->update($formFields);
+        return back();
+    }
 }

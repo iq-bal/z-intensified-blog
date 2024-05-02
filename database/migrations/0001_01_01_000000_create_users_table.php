@@ -15,6 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+
+            //added extra fields start here 
+            $table->string('interest')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable(); 
+            $table->string('dp_image')->nullable(); 
+            $table->string('hobbies')->nullable(); 
+            // extra field end here 
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
