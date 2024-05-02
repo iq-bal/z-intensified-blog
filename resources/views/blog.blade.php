@@ -45,11 +45,24 @@
   </div>
 
   <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+
+    @if (\App\Models\Like::where('user_id', auth()->id())
+    ->where('blog_id', $blog->id)
+    ->first())
+        <a href="/blogs/{{$blog->id}}/likes" style="text-decoration: none; color: inherit;">
+          <button style="padding: 6px 10px; border: none; background-color: #007bff; color: #fff; border-radius: 5px;">
+              <i class="fas fa-thumbs-down" style="font-size: 14px;"></i> Dislike <span style="margin-left: 3px; font-size: 12px;">({{ \App\Models\Like::where('blog_id', $blog->id)->count() }})</span>
+          </button>
+        </a>
+    @else
     <a href="/blogs/{{$blog->id}}/likes" style="text-decoration: none; color: inherit;">
       <button style="padding: 6px 10px; border: none; background-color: #007bff; color: #fff; border-radius: 5px;">
-          <i class="fas fa-thumbs-up" style="font-size: 14px;"></i> Like <span style="margin-left: 3px; font-size: 12px;">(10)</span>
+          <i class="fas fa-thumbs-up" style="font-size: 14px;"></i> Like <span style="margin-left: 3px; font-size: 12px;">({{ \App\Models\Like::where('blog_id', $blog->id)->count() }})</span>
       </button>
     </a>
+    @endif
+
+    
 
     <a href="#" style="text-decoration: none; color: #007bff; padding: 6px;">
         <i class="fas fa-share" style="font-size: 14px;"></i> Share

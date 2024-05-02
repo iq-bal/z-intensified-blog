@@ -28,7 +28,7 @@ Route::delete('/blogs/{blog}', [BlogController::class,'destroy'])->middleware('a
 Route::post('/blogs/{blog}/comment',[CommentController::class,'store']);
 
 // add a like or dislike
-Route::post('/blogs/{blog}/likes', [LikeController::class,'likeOrDislike']);
+Route::get('/blogs/{blog}/likes', [LikeController::class,'likeOrDislike'])->middleware('auth');
 
 // manage listing route
 Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');
