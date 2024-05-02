@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 
 //get all blogs 
 Route::get('/', [BlogController::class,'index']);
@@ -26,13 +27,14 @@ Route::delete('/blogs/{blog}', [BlogController::class,'destroy'])->middleware('a
 // post a comment 
 Route::post('/blogs/{blog}/comment',[CommentController::class,'store']);
 
+// add a like or dislike
+Route::post('/blogs/{blog}/likes', [LikeController::class,'likeOrDislike']);
+
 // manage listing route
 Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');
 
 
-
 // single profile , for testing purpose, will be deleted
-
 Route::get('/single-profile',function(){
     return view('single-profile');
 });
