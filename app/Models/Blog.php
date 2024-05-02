@@ -35,5 +35,9 @@ class Blog extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
-    
+
+    // relationship with likes
+    public function likes(){
+        return $this->hasMany(Like::class); 
+    }
 }

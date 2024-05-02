@@ -30,6 +30,8 @@
       {{ strlen($blog->description) > 120 ? substr($blog->description, 0, 120) . '...' : $blog->description }}
     </p>
   </div>
+  
+
   <div class="card__footer">
     <div class="user">
       {{-- <img src="https://i.pravatar.cc/40?img={{$blog->id}}" alt="user__image" class="user__image"> --}}
@@ -41,6 +43,23 @@
       </div>
     </div>
   </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+    <button style="padding: 6px 10px; border: none; background-color: #007bff; color: #fff; border-radius: 5px;">
+        <i class="fas fa-thumbs-up" style="font-size: 14px;"></i> Like <span style="margin-left: 3px; font-size: 12px;">(10)</span>
+    </button>
+    <a href="#" style="text-decoration: none; color: #007bff; padding: 6px;">
+        <i class="fas fa-share" style="font-size: 14px;"></i> Share
+    </a>
+    <a href="#" style="text-decoration: none; color: #007bff; padding: 6px;">
+        <i class="fas fa-comment" style="font-size: 14px;"></i> Comment <span style="margin-left: 3px; font-size: 12px;">(5)</span>
+    </a>
+</div>
+
+
+
+
+
 </div>
 @endforeach
 @else
