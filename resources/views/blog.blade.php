@@ -34,7 +34,9 @@
     <div class="user">
       {{-- <img src="https://i.pravatar.cc/40?img={{$blog->id}}" alt="user__image" class="user__image"> --}}
       <div class="user__info">
-        <h5>{{$blog->author}}</h5>
+        <h5>
+          <a href="/users/{{$blog->user_id}}" style="text-decoration: none; color: #007bff;">{{$blog->author}}</a>
+      </h5>      
         <small>{{$blog->created_at}}</small>
       </div>
     </div>
