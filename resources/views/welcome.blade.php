@@ -22,6 +22,7 @@
             @auth
                 {{-- <li class="upward"><a href="/blogs/manage">Manage</a></li> --}}
                 <li class="upward"><a href="/users/{{auth()->id()}}">Profile</a></li>
+                
                 <li class="forward">
                     <form action="/logout" method="POST" class="inline" style="display: inline-block; margin-right: 10px;">
                         @csrf
@@ -29,8 +30,6 @@
                             <i class="fa-solid fa-door-closed" style="margin-right: 5px;"></i> Logout
                         </button>
                     </form>
-                    
-                    
                 </li>
             @else
                 <li class="upward"><a href="/register">Register</a></li>

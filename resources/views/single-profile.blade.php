@@ -12,8 +12,15 @@
             <a href="/users/{{$user->id}}/edit" style="text-decoration: none; color: #007bff; display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s;">
                 <span style="margin-right: 5px;"><i class="fas fa-edit" style="font-size: 16px;"></i></span>
                 <span style="font-size: 16px;">Edit Info</span>
-            </a>
-          @endif
+            </a>  
+            @else
+            <a href="/users/{{$user->id}}/follow" style="text-decoration: none; color: inherit;">
+              <button style="padding: 10px 30px; border: none; background-color: #007bff; color: #fff; border-radius: 8px; cursor: pointer;">
+                  {{ auth()->user()->following()->where('followee_id', $user->id)->exists() ? 'Unfollow' : 'Follow' }}
+              </button>
+          </a>          
+            @endif
+          
 
           <p class="profile-email">{{$user->email}}</p>
           <p class="profile-topic">Talks About: {{$user->interest}}</p>

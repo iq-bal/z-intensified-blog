@@ -34,14 +34,6 @@ Route::get('/blogs/{blog}/likes', [LikeController::class,'likeOrDislike'])->midd
 Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');
 
 
-// single profile , for testing purpose, will be deleted
-Route::get('/single-profile',function(){
-    return view('single-profile');
-});
-
-Route::get('all-users',function(){
-    return view('users');
-});
 
 
 //get single blog
@@ -70,4 +62,11 @@ Route::put('users/{user}',[UserController::class,'update']);
 
 //get single user
 Route::get('/users/{user}',[UserController::class,'show']);
+
+
+
+// follow a user
+// routes/web.php
+Route::get('/users/{user}/follow', [UserController::class,'follow']);
+
 
