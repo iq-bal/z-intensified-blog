@@ -132,5 +132,4 @@ class UserController extends Controller
         // ->with('success', 'You are now following ' . $user->name);
     }
 
-
 }

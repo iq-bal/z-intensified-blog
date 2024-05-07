@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Z-Intensified</title>
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+    <script src="{{asset('/js/script.js')}}"></script>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -20,11 +21,48 @@
             <li><a href="/">Home</a></li>
             <li class="center"><a href="/blogs/create">+Blog</a></li>           
             @auth
-                <li class="center">
+            <li class="notification-container">
+                <a href="#" id="notification-icon">
+                    <i class="fa fa-bell fa-lg rounded-circle"></i>
+                </a>
+                <div id="notification-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>All Notifications</h2>
+                        <ul class="notification-content">
+                            @php
+                                $user = auth()->user();
+                                if ($user) {
+                                    $announcements = $user->announcements;
+                            @endphp
+                                @foreach($announcements as $announcement)
+                                    <li>
+                                        <span class="notification-date">{{ $announcement->created_at }}</span>
+                                        <a href="/blogs/{{\App\Models\Announcement::find($announcement->id)->blog->id}}" style="text-decoration: none; color: inherit; display: inline-block; border-bottom: 2px solid transparent; transition: border-color 0.3s;">
+                                            <p class="notification-message" style="margin: 0;">
+                                                A new blog 
+                                                <span style="font-family: 'Arial', sans-serif; color: #007bff; font-weight: bold;">{{ \App\Models\Announcement::find($announcement->id)->blog->title}}</span> 
+                                                has been posted by 
+                                                <span style="font-family: 'Times New Roman', serif; color: #28a745; font-style: italic;">{{ \App\Models\Announcement::find($announcement->id)->author->name}}</span> 
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            @php
+                                }
+                            @endphp 
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+                
+
+                {{-- <li class="center">
                     <a href="/notifications">
                         <i class="fa fa-bell fa-lg rounded-circle"></i>
                     </a>
-                </li> 
+                </li>  --}}
 
 
                 {{-- <li class="upward">
@@ -61,5 +99,33 @@
         <p>©All rights reserved.</p>
         <p><a href="/blogs/create">Create a Post</a></p>
     </footer>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("notification-modal");
+    
+        // Get the button that opens the modal
+        var bellIcon = document.getElementById("notification-icon");
+    
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+    
+        // When the user clicks the bell icon, open the modal
+        bellIcon.onclick = function() {
+            modal.style.display = "block";
+        }
+    
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
 </body>
 </html>

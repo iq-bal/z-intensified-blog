@@ -40,4 +40,9 @@ class Blog extends Model
     public function likes(){
         return $this->hasMany(Like::class); 
     }
+
+    // one post has one announcement
+    public function announcement(){
+        return $this->hasOne(Announcement::class); 
+    }
 }

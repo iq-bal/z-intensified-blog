@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,7 +12,6 @@ class BlogController extends Controller
     public function index(){
         // dd(request());
         return view('blog',[
-            // 'blogs'=>Blog::all()
             'blogs'=>Blog::latest()->filter(request(['tag','search']))->paginate(6)
         ]);
     }
@@ -36,10 +36,8 @@ class BlogController extends Controller
         // photo upload er jonno fileSystem a public kore dite hbe
         $formFields = $request->validate([
             'title'=> 'required',
-            // 'email' => ['required','email'],
             'tags' => 'required',
             'description' => 'required',
-            // 'author'=>'required'
         ]);
         if($request->hasFile('logo')){
             $formFields['logo'] = $request->file('logo')->store('logos','public');
@@ -47,9 +45,17 @@ class BlogController extends Controller
         $formFields['user_id'] = auth()->id();
         $formFields['email'] = auth()->user()->email; 
         $formFields['author'] = auth()->user()->name; 
-        // php artisan storage:link
-        Blog::create($formFields);
-
+        
+        $post = Blog::create($formFields);
+        
+        $followers = User::find(auth()->id())->followers;
+        foreach ($followers as $follower) {
+            $announcement = Announcement::create([
+                'blog_id' => $post->id,
+                'created_by' => auth()->id()
+            ]);
+            $announcement->users()->attach($follower->id); // Attach the user to the announcement
+        }
         return redirect('/');
         // ->with('message','Listing created successfully!'); 
     }

@@ -111,3 +111,58 @@ footer a:hover {
 
 
 
+
+/* notification style */
+/* Updated CSS for the notification panel */
+
+.notification-container {
+  position: relative;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px); /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px; /* Set desired width */
+  max-height: 400px; /* Set maximum height */
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.notification-content {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-content li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.notification-date {
+  font-size: 14px;
+  color: #888;
+}
+
+.notification-message {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

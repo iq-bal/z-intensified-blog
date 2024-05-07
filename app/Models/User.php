@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notification;
 
 class User extends Authenticatable
 {
@@ -80,5 +81,14 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followee_id');
     }
 
-    
+    // users may have many notifications
+    public function announcements()
+    {
+        return $this->belongsToMany(Announcement::class,'user_announcement'); 
+    }
+
+    // one user may cause to create many announcement
+    public function announcements_created(){
+        return $this->hasMany(Announcement::class);
+    }
 }
