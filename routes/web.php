@@ -74,9 +74,9 @@ Route::get('/users/{user}/follow', [UserController::class,'follow']);
 Route::get('/chat-room',function(){
     $user = auth()->user()->name; 
     return view('z-cast.lobby',['user'=>$user]);
-});
+})->middleware('auth');
 
 Route::get('/room.php',function(){
     // dd(request());
     return view('z-cast.room'); 
-});
+})->middleware('auth');

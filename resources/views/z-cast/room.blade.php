@@ -16,12 +16,12 @@
             <button id="members__button">
                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#ede0e0"><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"/></svg>
             </button>
-            <a href="/chat-room">
+            {{-- <a href="/chat-room"> --}}
                 <h3 id="logo">
-                    <img src="{{ asset('/images/z-cast/logo.jpeg') }}" alt="Site Logo">
+                    {{-- <img src="{{ asset('/images/z-cast/logo.jpeg') }}" alt="Site Logo"> --}}
                     <span>Z-Cast</span>
                 </h3>
-            </a>
+            {{-- </a> --}}
        </div>
         <div id="nav__links">
             <button id="chat__button"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" fill="#ede0e0" clip-rule="evenodd"><path d="M24 20h-3v4l-5.333-4h-7.667v-4h2v2h6.333l2.667 2v-2h3v-8.001h-2v-2h4v12.001zm-15.667-6l-5.333 4v-4h-3v-14.001l18 .001v14h-9.667zm-6.333-2h3v2l2.667-2h8.333v-10l-14-.001v10.001z"/></svg></button>
