@@ -19,10 +19,17 @@
     <header>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li class="center"><a href="/blogs/create">+Blog</a></li>           
+            <li class="center">
+                <a href="/blogs/create" title="Create a blog">
+                    <i class="fa fa-plus-circle fa-lg rounded-circle"></i>
+                </a>
+            </li>
+            
+            
+            {{-- <li class="center"><a href="/blogs/create">+Blog</a></li>            --}}
             @auth
             <li class="notification-container">
-                <a href="#" id="notification-icon">
+                <a href="#" id="notification-icon" title="Notifications">
                     <i class="fa fa-bell fa-lg rounded-circle"></i>
                 </a>
                 <div id="notification-modal" class="modal">
@@ -56,7 +63,13 @@
                 </div>
             </li>
 
-                
+            <li class="center">
+                <a href="/chat-room" title="Start a video podcast">
+                    <i class="fa fa-comments fa-lg rounded-circle"></i>
+                </a>
+            </li>
+            
+            
 
                 {{-- <li class="center">
                     <a href="/notifications">
@@ -73,16 +86,35 @@
                 
                 
                 {{-- <li class="upward"><a href="/blogs/manage">Manage</a></li> --}}
-                <li class="upward"><a href="/users/{{auth()->id()}}">Profile</a></li>
+                {{-- <li class="upward"><a href="/users/{{auth()->id()}}">Profile</a></li> --}}
+
+                <li class="upward">
+                    <a href="/users/{{auth()->id()}}" title="profile">
+                        <i class="fa fa-user fa-lg rounded-circle"></i>
+                    </a>
+                </li>
+                
 
                 <li class="forward">
+                    <form action="/logout" method="POST" class="inline" style="display: inline-block; margin-right: 10px;">
+                        @csrf
+                        <button type="submit" title="Logout" style="border: 1px solid #007bff; padding: 8px 16px; border-radius: 5px; cursor: pointer;">
+                            <i class="fa fa-sign-out-alt"></i>
+                        </button>
+                    </form>
+                </li>
+                
+                
+                
+                
+                {{-- <li class="forward">
                     <form action="/logout" method="POST" class="inline" style="display: inline-block; margin-right: 10px;">
                         @csrf
                         <button type="submit" style="background-color: #007bff; border: 1px solid #007bff; color: #fff; padding: 8px 16px; border-radius: 5px; cursor: pointer;">
                             <i class="fa-solid fa-door-closed" style="margin-right: 5px;"></i> Logout
                         </button>
                     </form>
-                </li>
+                </li> --}}
             @else
                 <li class="upward"><a href="/register">Register</a></li>
                 <li class="forward"><a href="/login">Login</a></li>

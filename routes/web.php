@@ -70,3 +70,13 @@ Route::get('/users/{user}',[UserController::class,'show']);
 Route::get('/users/{user}/follow', [UserController::class,'follow']);
 
 
+//chat room
+Route::get('/chat-room',function(){
+    $user = auth()->user()->name; 
+    return view('z-cast.lobby',['user'=>$user]);
+});
+
+Route::get('/room.php',function(){
+    // dd(request());
+    return view('z-cast.room'); 
+});
