@@ -80,3 +80,9 @@ Route::get('/room.php',function(){
     // dd(request());
     return view('z-cast.room'); 
 })->middleware('auth');
+
+
+// explore users
+Route::get('search-user', function(){
+    return view('explore'); 
+});

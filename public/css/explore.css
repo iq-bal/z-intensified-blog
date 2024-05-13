@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.explore-container-unique {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-bar-unique {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#user-search-unique {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user-list-unique {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.user-card-unique {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.user-card-unique:hover {
+    transform: scale(1.05);
+}
+
+.user-image-unique {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.user-info-unique {
+    padding: 20px;
+}
+
+.user-name-unique {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.user-name-link-unique {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.user-name-link-unique:hover {
+    color: #007bff;
+}
+
+.user-followers-unique,
+.user-talks-about-unique,
+.user-bio-unique {
+    font-size: 14px;
+    color: #555;
+}
+
+.action-section-unique {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.action-button-unique {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #007bff;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-button-unique i {
+    font-size: 16px;
+}
+
+.action-button-unique:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.user-talks-about-unique {
+    margin: 15px 0 10px;
+    font-style: italic;
+}
+
+.user-bio-unique {
+    margin: 0;
+    line-height: 1.6;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}

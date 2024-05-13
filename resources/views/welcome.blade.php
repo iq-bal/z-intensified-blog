@@ -32,6 +32,11 @@
                 <a href="#" id="notification-icon" title="Notifications">
                     <i class="fa fa-bell fa-lg rounded-circle"></i>
                 </a>
+                
+                
+                
+                
+                
                 <div id="notification-modal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -62,6 +67,10 @@
                     </div>
                 </div>
             </li>
+
+            <a href="search-user" id="search-icon" title="Search">
+                <i class="fas fa-search fa-lg"></i>
+            </a>
 
             <li class="center">
                 <a href="/chat-room" title="Start a video podcast">
