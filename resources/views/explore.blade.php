@@ -3,9 +3,29 @@
 
 <link rel="stylesheet" href="{{asset('/css/explore.css')}}">
 
+
+<script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            laravel: "#ef3b2d",
+                        },
+                    },
+                },
+            };
+        </script>
+
+
+
 <div class="explore-container-unique">
     <div class="search-bar-unique">
-        <input type="text" id="user-search-unique" placeholder="Search for users...">
+        <form method="get">
+            <input type="text" name="search" id="user-search-unique" placeholder="Search for users...">
+            {{-- <br> --}}
+            {{-- <input type="submit" value="Search" style="margin-top: 10px; padding: 10px 15px; font-size: 16px; color: #fff; background-color: #007bff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;"> --}}
+        </form>
     </div>
     <div class="user-list-unique">
         @foreach ($users as $user)
@@ -13,7 +33,7 @@
                 @continue; 
             @endif
             <div class="user-card-unique">
-                <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
+                <img src="{{$user->dp_image? asset('storage/'.$user->dp_image):asset('/images/avatar/avatar.jpg')}}" alt="User Image" class="user-image-unique">
                 <div class="user-info-unique">
                     <h2 class="user-name-unique"><a href="/users/{{$user->id}}" class="user-name-link-unique">{{$user->name}}</a></h2>
                     <p class="user-followers-unique">Followers: {{\App\Models\User::find($user->id)->followers->count()}}</p>
@@ -32,7 +52,7 @@
             </div>
         @endforeach
         <!-- User Card 1 -->
-        <div class="user-card-unique">
+        {{-- <div class="user-card-unique">
             <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
             <div class="user-info-unique">
                 <h2 class="user-name-unique"><a href="#" class="user-name-link-unique">John Doe</a></h2>
@@ -45,9 +65,9 @@
                 <p class="user-talks-about-unique">Talks about: Technology, AI, Programming</p>
                 <p class="user-bio-unique">Bio: Software developer with a passion for open-source projects and AI research.</p>
             </div>
-        </div>
+        </div> --}}
         <!-- User Card 2 -->
-        <div class="user-card-unique">
+        {{-- <div class="user-card-unique">
             <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
             <div class="user-info-unique">
                 <h2 class="user-name-unique"><a href="#" class="user-name-link-unique">Jane Smith</a></h2>
@@ -60,9 +80,9 @@
                 <p class="user-talks-about-unique">Talks about: Design, UX, Art</p>
                 <p class="user-bio-unique">Bio: UX designer and artist with a love for creating beautiful and functional user experiences.</p>
             </div>
-        </div>
+        </div> --}}
         <!-- User Card 3 -->
-        <div class="user-card-unique">
+        {{-- <div class="user-card-unique">
             <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
             <div class="user-info-unique">
                 <h2 class="user-name-unique"><a href="#" class="user-name-link-unique">Michael Johnson</a></h2>
@@ -75,9 +95,9 @@
                 <p class="user-talks-about-unique">Talks about: Fitness, Health, Wellness</p>
                 <p class="user-bio-unique">Bio: Fitness coach dedicated to helping people achieve their health and wellness goals.</p>
             </div>
-        </div>
+        </div> --}}
         <!-- User Card 4 -->
-        <div class="user-card-unique">
+        {{-- <div class="user-card-unique">
             <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
             <div class="user-info-unique">
                 <h2 class="user-name-unique"><a href="#" class="user-name-link-unique">Emily Davis</a></h2>
@@ -90,9 +110,9 @@
                 <p class="user-talks-about-unique">Talks about: Travel, Photography, Blogging</p>
                 <p class="user-bio-unique">Bio: Travel blogger capturing the beauty of the world through the lens of my camera.</p>
             </div>
-        </div>
+        </div> --}}
         <!-- User Card 5 -->
-        <div class="user-card-unique">
+        {{-- <div class="user-card-unique">
             <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
             <div class="user-info-unique">
                 <h2 class="user-name-unique"><a href="#" class="user-name-link-unique">David Lee</a></h2>
@@ -105,9 +125,12 @@
                 <p class="user-talks-about-unique">Talks about: Music, Guitar, Songwriting</p>
                 <p class="user-bio-unique">Bio: Musician and songwriter sharing tips and tutorials on playing guitar and creating music.</p>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 
+<div class="mt-6 p-4">
+    {{$users->links()}}
+</div>
 
 @endsection

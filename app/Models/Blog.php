@@ -21,7 +21,6 @@ class Blog extends Model
             ->orWhere('description', 'like', '%' . request('search'). '%')
             ->orWhere('tags', 'like', '%' . request('search'). '%')
             ->orWhere('author', 'like', '%' . request('search'). '%')
-
             ;
         }
     }

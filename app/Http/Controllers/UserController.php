@@ -9,7 +9,9 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
     public function index(){
-        return view('explore',['users'=>User::all()]);
+        return view('explore', [
+            'users' => User::orderByFollowers()->filter(request(['tag', 'search']))->paginate(20)
+        ]);
     }
 
     // show register form

@@ -53,6 +53,29 @@ class User extends Authenticatable
         ];
     }
 
+
+    
+
+    public function scopeOrderByFollowers($query)
+    {
+        return $query->withCount('followers')->orderByDesc('followers_count');
+    }
+    
+
+    public function scopeFilter($query, array $filters){
+        
+        if($filters['tag'] ?? false){
+            $query->where('tags', 'like', '%' . request('tag'). '%');
+        }
+        if($filters['search'] ?? false){
+            $query->where('name', 'like', '%' . request('search'). '%')
+            ->orWhere('email', 'like', '%' . request('search'). '%')
+            // ->orWhere('tags', 'like', '%' . request('search'). '%')
+            // ->orWhere('author', 'like', '%' . request('search'). '%')
+            ;
+        }
+    }
+
     // Relationship with blogs
     public function blogs(){
         return $this->hasMany(Blog::class,'user_id');
