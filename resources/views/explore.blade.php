@@ -8,6 +8,29 @@
         <input type="text" id="user-search-unique" placeholder="Search for users...">
     </div>
     <div class="user-list-unique">
+        @foreach ($users as $user)
+            @if (auth()->id()==$user->id)
+                @continue; 
+            @endif
+            <div class="user-card-unique">
+                <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">
+                <div class="user-info-unique">
+                    <h2 class="user-name-unique"><a href="/users/{{$user->id}}" class="user-name-link-unique">{{$user->name}}</a></h2>
+                    <p class="user-followers-unique">Followers: {{\App\Models\User::find($user->id)->followers->count()}}</p>
+                    <div class="action-section-unique">
+
+                        <a href="/users/{{$user->id}}/follow" class="action-button-unique"><i class="fas fa-user-plus"></i>
+                            {{ auth()->user()->following()->where('followee_id', $user->id)->exists() ? 'Unfollow' : 'Follow' }}
+                        </a>
+
+                        <a href="mailto:{{$user->email}}" class="action-button-unique"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="{{$user->twitter}}" class="action-button-unique"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <p class="user-talks-about-unique">Talks about: {{$user->interest}}</p>
+                    <p class="user-bio-unique">Bio: {{$user->bio}}</p>
+                </div>
+            </div>
+        @endforeach
         <!-- User Card 1 -->
         <div class="user-card-unique">
             <img src="https://source.unsplash.com/600x400/?computer" alt="User Image" class="user-image-unique">

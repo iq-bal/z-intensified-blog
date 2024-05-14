@@ -18,7 +18,7 @@
               <button style="padding: 10px 30px; border: none; background-color: #007bff; color: #fff; border-radius: 8px; cursor: pointer;">
                   {{ auth()->user()->following()->where('followee_id', $user->id)->exists() ? 'Unfollow' : 'Follow' }}
               </button>
-          </a>          
+            </a>          
             @endif
           
 

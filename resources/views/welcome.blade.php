@@ -68,7 +68,7 @@
                 </div>
             </li>
 
-            <a href="search-user" id="search-icon" title="Search">
+            <a href="/search-user" id="search-icon" title="Search">
                 <i class="fas fa-search fa-lg"></i>
             </a>
 

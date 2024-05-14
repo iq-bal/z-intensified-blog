@@ -83,6 +83,4 @@ Route::get('/room.php',function(){
 
 
 // explore users
-Route::get('search-user', function(){
-    return view('explore'); 
-});
+Route::get('/search-user',[UserController::class,'index'] );

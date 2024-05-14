@@ -8,6 +8,10 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function index(){
+        return view('explore',['users'=>User::all()]);
+    }
+
     // show register form
     public function create(){
         return view('register');
