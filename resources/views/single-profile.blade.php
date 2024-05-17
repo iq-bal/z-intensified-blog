@@ -113,7 +113,7 @@
                       <div class="post-stats">
                           <span><i class="fas fa-thumbs-up"></i> {{\App\Models\Like::where('blog_id', $blog->id)->count() }} Likes</span>
                           <span><i class="fas fa-comments"></i> {{\App\Models\Comment::where('blog_id', $blog->id)->count() }} Comments</span>
-                          {{-- <span><i class="fas fa-share"></i> {{ $blog->shares }} Shares</span> --}}
+                          <span><i class="fas fa-share"></i> {{ \App\Models\Share::where('blog_id', $blog->id)->count() }} Shares</span>
                       </div>
                       <div class="post-actions">
                           @if (auth()->id() == $blog->user_id)
@@ -132,5 +132,42 @@
           @endforeach
       </ul>
   </div>
+
+
+
+  <div class="blog-section">
+    <h2>Shared Posts</h2>
+    <ul class="blog-post-list">
+        @foreach ($sharedBlogs as $blog)
+            <li>
+                {{-- <span class="controversial-factor high">High</span> --}}
+                <a href="/blogs/{{$blog->id}}">{{$blog->title}}</a>
+                <div class="post-meta">
+                    <div class="post-stats">
+                        <span><i class="fas fa-thumbs-up"></i> {{\App\Models\Like::where('blog_id', $blog->id)->count() }} Likes</span>
+                        <span><i class="fas fa-comments"></i> {{\App\Models\Comment::where('blog_id', $blog->id)->count() }} Comments</span>
+                        <span><i class="fas fa-share"></i> {{ \App\Models\Share::where('blog_id', $blog->id)->count() }} Shares</span>
+                    </div>
+                    <div class="post-actions">
+                        @if (auth()->id() == $blog->user_id)
+                            <!-- Edit button -->
+                            <a href="/blogs/{{$blog->id}}/edit"><i class="fas fa-edit"></i> Edit</a>
+                            <!-- Delete button -->
+                            <form action="/blogs/{{$blog->id}}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"><i class="fas fa-trash-alt"></i> Delete</button>
+                            </form>
+                        @endif
+                    </div>
+                </div>
+            </li>
+        @endforeach
+    </ul>
+</div>
+
+
+
+
   </div>
 @endsection

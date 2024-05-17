@@ -75,7 +75,8 @@ class UserController extends Controller
         // dd(User::find(3)->blogs);
         return view('single-profile',[
             'user'=>$user,
-            'blogs'=>User::find($user->id)->blogs
+            'blogs'=>User::find($user->id)->blogs,
+            'sharedBlogs'=>User::find($user->id)->shares
         ]);
     }
 

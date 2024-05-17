@@ -114,4 +114,9 @@ class User extends Authenticatable
     public function announcements_created(){
         return $this->hasMany(Announcement::class);
     }
+
+    // relationship with shares
+    public function shares(){
+        return $this->hasMany(Share::class);
+    }
 }

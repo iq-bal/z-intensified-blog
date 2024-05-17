@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ShareController;
 
 //get all blogs 
 Route::get('/', [BlogController::class,'index']);
@@ -29,6 +30,9 @@ Route::post('/blogs/{blog}/comment',[CommentController::class,'store']);
 
 // add a like or dislike
 Route::get('/blogs/{blog}/likes', [LikeController::class,'likeOrDislike'])->middleware('auth');
+
+// share a blog
+Route::get('/blogs/{blog}/shares', [ShareController::class,'shareOrUnshare'])->middleware('auth');
 
 // manage listing route
 Route::get('/blogs/manage',[BlogController::class,'manage'])->middleware('auth');

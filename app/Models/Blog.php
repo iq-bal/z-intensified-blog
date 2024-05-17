@@ -44,4 +44,9 @@ class Blog extends Model
     public function announcement(){
         return $this->hasOne(Announcement::class); 
     }
+
+    // realtionship with share
+    public function shares(){
+        return $this->hasMany(Share::class);
+    }
 }

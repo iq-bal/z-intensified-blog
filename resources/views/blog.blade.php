@@ -44,34 +44,46 @@
     </div>
   </div>
 
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
 
+
+
+
+
+
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px;">
     @if (\App\Models\Like::where('user_id', auth()->id())
     ->where('blog_id', $blog->id)
     ->first())
         <a href="/blogs/{{$blog->id}}/likes" style="text-decoration: none; color: inherit;">
-          <button style="padding: 6px 10px; border: none; background-color: #007bff; color: #fff; border-radius: 5px;">
-              <i class="fas fa-thumbs-down" style="font-size: 14px;"></i> Dislike <span style="margin-left: 3px; font-size: 12px;">({{ \App\Models\Like::where('blog_id', $blog->id)->count() }})</span>
+          <button style="padding: 4px 8px; border: none; background-color: #007bff; color: #fff; border-radius: 3px;">
+              <i class="fas fa-thumbs-down" style="font-size: 12px;"></i> Dislike <span style="margin-left: 2px; font-size: 10px;">({{ \App\Models\Like::where('blog_id', $blog->id)->count() }})</span>
           </button>
         </a>
     @else
     <a href="/blogs/{{$blog->id}}/likes" style="text-decoration: none; color: inherit;">
-      <button style="padding: 6px 10px; border: none; background-color: #007bff; color: #fff; border-radius: 5px;">
-          <i class="fas fa-thumbs-up" style="font-size: 14px;"></i> Like <span style="margin-left: 3px; font-size: 12px;">({{ \App\Models\Like::where('blog_id', $blog->id)->count() }})</span>
+      <button style="padding: 4px 8px; border: none; background-color: #007bff; color: #fff; border-radius: 3px;">
+          <i class="fas fa-thumbs-up" style="font-size: 12px;"></i> Like <span style="margin-left: 2px; font-size: 10px;">({{ \App\Models\Like::where('blog_id', $blog->id)->count() }})</span>
       </button>
     </a>
     @endif
 
-    
+    @if (\App\Models\Share::where('user_id', auth()->id())
+    ->where('blog_id', $blog->id)
+    ->first())
+        <a href="/blogs/{{$blog->id}}/shares" style="text-decoration: none; color: #007bff; padding: 5px;">
+          <i class="fas fa-share" style="font-size: 12px;"></i> Unshare ({{ \App\Models\Share::where('blog_id', $blog->id)->count() }})
+        </a>
+    @else
+      <a href="/blogs/{{$blog->id}}/shares" style="text-decoration: none; color: #007bff; padding: 5px;">
+        <i class="fas fa-share" style="font-size: 12px;"></i> Share ({{ \App\Models\Share::where('blog_id', $blog->id)->count() }})
+      </a>
+    @endif
 
-    <a href="#" style="text-decoration: none; color: #007bff; padding: 6px;">
-        <i class="fas fa-share" style="font-size: 14px;"></i> Share
-    </a>
-
-    <a href="#" style="text-decoration: none; color: #007bff; padding: 6px;">
-        <i class="fas fa-comment" style="font-size: 14px;"></i> Comment <span style="margin-left: 3px; font-size: 12px;">(5)</span>
+    <a href="blogs/{{$blog->id}}" style="text-decoration: none; color: #007bff; padding: 5px;">
+        <i class="fas fa-comment" style="font-size: 12px;"></i> Comment <span style="margin-left: 2px; font-size: 10px;">({{ \App\Models\Comment::where('blog_id', $blog->id)->count() }})</span>
     </a>
 </div>
+
 
 
 
