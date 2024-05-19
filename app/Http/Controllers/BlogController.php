@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Announcement;
 use App\Models\Blog;
 use App\Models\User;
+use GeminiAPI\Laravel\Facades\Gemini;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -101,4 +102,11 @@ class BlogController extends Controller
         // dd(auth()->user()->blogs()->get());
         return view('manage',['blogs'=>auth()->user()->blogs()->get()]);
     }
+
+    public function summarize(Blog $blog){
+        $command = 'summmarize this blog: '.$blog->description; 
+        $summary = Gemini::generateText($command); 
+        return response()->json(['summary' => $summary]);
+    }
+
 }

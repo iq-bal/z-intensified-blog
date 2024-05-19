@@ -6,22 +6,62 @@
     <img src="{{$blog->logo? asset('storage/'.$blog->logo):'https://source.unsplash.com/600x400/?computer'}}" alt="Computer Image">
     <h2>{{$blog->title}}</h2>
     <p>{{$blog->description}}</p>
+  
+    <button id="summarizeButton" data-blog-id="{{$blog->id}}" style="display: block; margin: 10px auto; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">Summarize</button>
+    <div id="summaryText" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background-color: #f0f0f0; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></div>
+    
+    <script>
+      async function fetchSummarizedText(blogId) {
+        try {
+          // Make a fetch request to the API endpoint
+          const response = await fetch(`/summarize/${blogId}`);
+          
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          
+          const data = await response.json();
+          return data.summary; // Extract summarized text from the 'summary' field
+        } catch (error) {
+          console.error('Error fetching summarized text:', error);
+          throw error;
+        }
+      }
+      
+      // Get the button and text section
+      var summarizeButton = document.getElementById("summarizeButton");
+      var summaryText = document.getElementById("summaryText");
+    
+      // Add event listener to the button
+      summarizeButton.addEventListener("click", async function() {
+        try {
+          var blogId = this.dataset.blogId; // Get the blog ID from the data attribute
+          var summarizedText = await fetchSummarizedText(blogId);
+          
+          // Display the summarized text
+          summaryText.textContent = "Summarized Text: " + summarizedText;
+          summaryText.style.display = "block"; // Show the text section
+        } catch (error) {
+          // Handle errors
+        }
+      });
+    </script>
+    
+      
+      
+
+    
+
+
+
+
+
+
+
     <p class="author-info">
         Author: <a href="/users/{{$blog->user_id}}" style="color: #007bff; text-decoration: none;">{{$blog->author}}</a>
     </p>
-    
-    {{-- <p class="author-info">Author: {{$blog->author}}</p> --}}
     <p class="author-info">Published on: {{$blog->created_at}}</p>
-
-    <!-- Edit Link -->
-    {{-- <a href="/blogs/{{$blog->id}}/edit" style="display: inline-block; margin-right: 10px; background-color: #007bff; color: #fff; padding: 8px 16px; text-decoration: none; border-radius: 5px;">Edit</a> --}}
-    
-    <!-- Delete Link -->
-    {{-- <form action="/blogs/{{$blog->id}}" method="POST" style="display: inline-block;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" style="background-color: #dc3545; color: #fff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
-    </form> --}}
 </section> 
 
 @auth

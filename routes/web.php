@@ -1,11 +1,14 @@
 <?php
 
+use GeminiAPI\Laravel\Facades\Gemini;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ShareController;
+use App\Http\Controllers\CommentController;
+
+
 
 //get all blogs 
 Route::get('/', [BlogController::class,'index']);
@@ -65,13 +68,19 @@ Route::get('users/{user}/edit',[UserController::class,'edit']);
 Route::put('users/{user}',[UserController::class,'update']);
 
 //get single user
-Route::get('/users/{user}',[UserController::class,'show']);
+Route::get('/users/{user}',[UserController::class,'show'])->middleware('auth');
 
 
 
 // follow a user
 // routes/web.php
 Route::get('/users/{user}/follow', [UserController::class,'follow']);
+
+// followers
+Route::get('/users/{user}/followers', [UserController::class, 'followers']);
+
+// following
+Route::get('/users/{user}/following',[UserController::class,'following']);
 
 
 //chat room
@@ -88,3 +97,15 @@ Route::get('/room.php',function(){
 
 // explore users
 Route::get('/search-user',[UserController::class,'index'] );
+
+
+// test route, will be deleted
+Route::get('/test',function(){
+    print Gemini::generateText('PHP in less than 100 chars');
+});
+
+
+
+Route::get('/summarize/{blog}', [BlogController::class, 'summarize'])->name('blogs.summarize');
+
+

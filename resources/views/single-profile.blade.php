@@ -9,17 +9,17 @@
           <h1 class="profile-username">{{$user->name}}</h1>
           
           @if (auth()->id()==$user->id)
-            <a href="/users/{{$user->id}}/edit" style="text-decoration: none; color: #007bff; display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s;">
-                <span style="margin-right: 5px;"><i class="fas fa-edit" style="font-size: 16px;"></i></span>
-                <span style="font-size: 16px;">Edit Info</span>
+            <a href="/users/{{$user->id}}/edit" class="custom-button">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="/users/{{$user->id}}/followers" class="custom-button">
+                <i class="fas fa-users"></i> Followers
+            </a>
+        
+            <a href="/users/{{$user->id}}/following" class="custom-button">
+                <i class="fas fa-user-friends"></i> Following
             </a>  
             @else
-            {{-- <a href="/users/{{$user->id}}/follow" style="text-decoration: none; color: inherit;">
-              <button style="padding: 10px 30px; border: none; background-color: #007bff; color: #fff; border-radius: 8px; cursor: pointer;">
-                  {{ auth()->user()->following()->where('followee_id', $user->id)->exists() ? 'Unfollow' : 'Follow' }}
-              </button>
-            </a>           --}}
-
             <div style="margin-top: 20px; margin-bottom: 20px;">
               <a href="/users/{{$user->id}}/follow" class="custom-button">
                   <i class="fas {{ auth()->user()->following()->where('followee_id', $user->id)->exists() ? 'fa-user-minus' : 'fa-user-plus' }}"></i>
@@ -141,19 +141,20 @@
         @foreach ($sharedBlogs as $blog)
             <li>
                 {{-- <span class="controversial-factor high">High</span> --}}
-                <a href="/blogs/{{$blog->id}}">{{$blog->title}}</a>
+                <a href="/blogs/{{$blog->blog_id}}">{{\App\Models\Blog::find($blog->blog_id)->title}}</a>
                 <div class="post-meta">
                     <div class="post-stats">
-                        <span><i class="fas fa-thumbs-up"></i> {{\App\Models\Like::where('blog_id', $blog->id)->count() }} Likes</span>
-                        <span><i class="fas fa-comments"></i> {{\App\Models\Comment::where('blog_id', $blog->id)->count() }} Comments</span>
-                        <span><i class="fas fa-share"></i> {{ \App\Models\Share::where('blog_id', $blog->id)->count() }} Shares</span>
+                        <span><i class="fas fa-thumbs-up"></i> {{\App\Models\Like::where('blog_id', $blog->blog_id)->count() }} Likes</span>
+                        <span><i class="fas fa-comments"></i> {{\App\Models\Comment::where('blog_id', $blog->blog_id)->count() }} Comments</span>
+                        <span><i class="fas fa-share"></i> {{ \App\Models\Share::where('blog_id', $blog->blog_id)->count() }} Shares</span>
                     </div>
                     <div class="post-actions">
                         @if (auth()->id() == $blog->user_id)
                             <!-- Edit button -->
-                            <a href="/blogs/{{$blog->id}}/edit"><i class="fas fa-edit"></i> Edit</a>
+                            {{-- <a href="/blogs/{{$blog->id}}/edit"><i class="fas fa-edit"></i> Edit</a> --}}
                             <!-- Delete button -->
-                            <form action="/blogs/{{$blog->id}}" method="POST" style="display: inline;">
+                            {{-- href="/blogs/{{$blog->id}}/shares" --}}
+                            <form action="/blogs/{{$blog->blog_id}}/shares" method="GET" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"><i class="fas fa-trash-alt"></i> Delete</button>
@@ -171,3 +172,7 @@
 
   </div>
 @endsection
+
+
+
+

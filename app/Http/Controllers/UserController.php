@@ -71,6 +71,7 @@ class UserController extends Controller
 
     //show single user
     public function show(User $user){
+        // dd(User::find($user->id)->shares);
         // dd($user);
         // dd(User::find(3)->blogs);
         return view('single-profile',[
@@ -139,4 +140,29 @@ class UserController extends Controller
         // ->with('success', 'You are now following ' . $user->name);
     }
 
+
+    public function followers(User $user)
+    {
+        
+        $followers = $user->followers()
+            ->withCount('followers') 
+            ->orderBy('followers_count', 'desc') 
+            ->paginate(10); 
+
+        
+        return view('explore', [
+            'users' => $followers
+        ]);
+    }
+
+
+    public function following(User $user){
+        $following = $user->following()
+        ->withCount('followers') 
+        ->orderBy('followers_count', 'desc') 
+        ->paginate(10); 
+        return view('explore',[
+            'users'=>$following
+        ]);
+    }
 }
