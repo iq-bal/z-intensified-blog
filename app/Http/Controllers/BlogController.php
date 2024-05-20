@@ -2,20 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
 use App\Models\Blog;
 use App\Models\User;
-use GeminiAPI\Laravel\Facades\Gemini;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use GeminiAPI\Laravel\Facades\Gemini;
 
 class BlogController extends Controller
 {
+    
     public function index(){
-        // dd(request());
-        return view('blog',[
-            'blogs'=>Blog::latest()->filter(request(['tag','search']))->paginate(6)
+        $filteredBlogs = Blog::latest()->filter(request(['tag','search']))->paginate(6);
+    
+        $rankedBlogs = $filteredBlogs->sortByDesc(function($blog) {
+            
+            $likesWeight = 0.6;
+            $commentsWeight = 0.3;
+            $sharesWeight = 0.1;
+            $timeWeight = 0.05; 
+
+            $totalScore = ($blog->likes->count() * $likesWeight) + 
+                          ($blog->comments->count() * $commentsWeight) + 
+                          ($blog->shares->count() * $sharesWeight);
+
+            $timeDifference = now()->diffInDays($blog->created_at);
+            $totalScore -= $timeDifference * $timeWeight;
+    
+            return $totalScore;
+        });
+    
+        return view('blog', [
+            'blogs' => $rankedBlogs,
         ]);
     }
+    
+    
 
     // show single listings
     public function show(Blog $blog){
@@ -108,5 +130,15 @@ class BlogController extends Controller
         $summary = Gemini::generateText($command); 
         return response()->json(['summary' => $summary]);
     }
+
+    public function sentiment(Blog $blog) {
+        $comments = $blog->comments;
+        $allComments = $comments->pluck('comment')->implode(' <SEPARATOR> ');
+        $command = 'Analyze the sentiment of the following comments, where each comment ends with a <SEPARATOR>, give response in a single text, you don\'t have to be specific about each comments, just give me an overall idea about the public sentiment, I repeat never use complete data structure like list or anything just give me answer on plain text: ' . $allComments;
+        $summary = Gemini::generateText($command); 
+        return response()->json(['summary' => $summary]);
+    }
+    
+    
 
 }

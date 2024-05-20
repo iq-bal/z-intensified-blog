@@ -20,4 +20,11 @@ class CommentController extends Controller
         Comment::create($formFields);
         return back();
     }
+
+    // delete a comment
+
+    public function destroy(Comment $comment){
+        $comment->delete();
+        return redirect()->back()->with('success', 'Comment deleted successfully.');
+    }
 }

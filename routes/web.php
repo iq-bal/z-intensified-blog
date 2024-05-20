@@ -108,4 +108,8 @@ Route::get('/test',function(){
 
 Route::get('/summarize/{blog}', [BlogController::class, 'summarize'])->name('blogs.summarize');
 
+Route::get('/sentiment/{blog}',[BlogController::class,'sentiment']);
+
+Route::get('/comments/{comment}',[CommentController::class,'destroy']);
+
 

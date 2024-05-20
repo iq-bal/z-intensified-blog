@@ -20,7 +20,7 @@
 @foreach ($blogs as $blog)
 <div class="card">
   <div class="card__header">
-    <img src="{{$blog->logo? asset('storage/'.$blog->logo):'https://source.unsplash.com/600x400/?computer'}}" alt="card__image" class="card__image" width="600">
+    <img src="{{ $blog->logo ? asset('storage/' . $blog->logo) : asset('/images/avatar/avatar.jpg') }}" alt="Blog Image" class="card__image" width="600">
   </div>
   <div class="card__body">
     {{-- <span class="tag tag-blue">{{$blog->tags}}</span> --}}
@@ -95,7 +95,7 @@
 <p>No Blog Post Found</p>    
 @endunless
 </div>
-<div class="mt-6 p-4">
+{{-- <div class="mt-6 p-4">
   {{$blogs->links()}}
-</div>
+</div> --}}
 @endsection

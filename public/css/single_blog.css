@@ -1,5 +1,8 @@
 
 /* single blog */
+body{
+  background-color: white;
+}
 .article-section {
     margin: 20px 0;
     padding: 20px;
