@@ -465,3 +465,79 @@ body{
   background-color: #007bff;
   color: #fff;
 }
+
+
+
+
+/* Existing CSS styles */
+
+/* Add this media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-picture {
+    margin-bottom: 20px;
+  }
+
+  .profile-info {
+    text-align: center;
+  }
+
+  .profile-username {
+    font-size: 24px;
+  }
+
+  .profile-topic {
+    font-size: 14px;
+  }
+
+  .profile-bio {
+    font-size: 16px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .social-link {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .hobbies-list li {
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .blog-section {
+    margin-top: 20px;
+  }
+
+  .blog-post-list li {
+    font-size: 16px;
+  }
+
+  .blog-post-list li .post-meta {
+    flex-direction: column;
+  }
+
+  .blog-post-list li .post-meta .post-actions {
+    margin-top: 10px;
+  }
+
+  .custom-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* Add additional media queries as needed */

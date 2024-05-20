@@ -64,7 +64,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)){
             $request->session()->regenerate();
             return redirect('/');
-            // ->with('message','You are now logged in');
+            
         }
         return back()->withErrors(['email'=>'Invalid Credentials'])->onlyInput('email');
     }
@@ -112,32 +112,32 @@ class UserController extends Controller
         }
 
         $user->update($formFields);
-        return back();
+        return back(); 
     }
 
-    // implementing follow and unfollow mechanism
+    
     public function follow(User $user)
     {
-        // Ensure the authenticated user is not trying to follow themselves
+        
         if (auth()->user()->id === $user->id) {
             return back();
-            // ->with('error', 'You cannot follow yourself.');
+            
         }
 
-        // Check if the authenticated user is already following the given user
+        
         $loggedInUser = auth()->user();
         if ($loggedInUser->following()->where('followee_id', $user->id)->exists()) {
-            // If the user is already following, unfollow
+            
             $loggedInUser->following()->detach($user);
             return back();
-            // ->with('success', 'You have unfollowed ' . $user->name);
+            
         }
 
-        // If not already following, follow the user
+        
         $loggedInUser->following()->attach($user);
 
         return back();
-        // ->with('success', 'You are now following ' . $user->name);
+        
     }
 
 
