@@ -97,8 +97,8 @@
     <div class="comment">
         <a href="/users/{{$comm->user_id}}" class="commenter-name">{{$comm->user->name}}</a> (<a href="mailto:{{$comm->user->email}}" class="commenter-email">{{$comm->user->email}}</a>)
         <p class="comment-text">{{$comm->comment}}</p>
-        
-        @if(auth()->id() == $blog->user_id || auth()->id()== $comm->user_id)
+        {{-- auth()->id() == $blog->user_id --}}
+        @if(auth()->id()== $comm->user_id)
           <a href="/comments/{{$comm->id}}" class="delete-comment" style="color: #f44336; text-decoration: none; font-weight: bold;">Delete</a>
         @endif
 
