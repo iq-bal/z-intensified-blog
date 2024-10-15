@@ -28,17 +28,27 @@ Z Intensified Blog is a modern blogging platform designed for Gen-Z users, offer
    cd z-intensified-blog
    ```
 
-2. Install dependencies:
+2. Install PHP dependencies:
    ```bash
-   npm install
+   composer install
    ```
-
+   
 3. Set up the environment:
    - Rename `.env.example` to `.env` and update necessary variables.
-
-4. Run the development server:
+     
+4. Generate an application key:
    ```bash
-   npm run dev
+   php artisan key:generate
+   ```
+   
+5. Run database migrations:
+   ```bash
+    php artisan migrate
+   ```
+   
+6. Run the development server:
+   ```bash
+    php artisan serve
    ```
 
 ## Usage
