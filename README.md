@@ -50,17 +50,20 @@ Z Intensified Blog is a modern blogging platform designed for Gen-Z users, offer
 
 We welcome contributions! Feel free to submit pull requests or raise issues.
 
-##Screenshots
+## Screenshots
 
-![Screenshot_1](screenshots/1.png)
-![Screenshot_2](screenshots/2.png)
-![Screenshot_3](screenshots/3.png)
-![Screenshot_4](screenshots/4.png)
-![Screenshot_5](screenshots/5.png)
-![Screenshot_6](screenshots/6.png)
-![Screenshot_7](screenshots/7.png)
-![Screenshot_8](screenshots/8.png)
-![Screenshot_9](screenshots/9.png)
+<p align="center">
+  <img src="screenshots/1.png" alt="Screenshot_1" width="300"/>
+  <img src="screenshots/2.png" alt="Screenshot_2" width="300"/>
+  <img src="screenshots/3.png" alt="Screenshot_3" width="300"/>
+  <img src="screenshots/4.png" alt="Screenshot_4" width="300"/>
+  <img src="screenshots/5.png" alt="Screenshot_5" width="300"/>
+  <img src="screenshots/6.png" alt="Screenshot_6" width="300"/>
+  <img src="screenshots/7.png" alt="Screenshot_7" width="300"/>
+  <img src="screenshots/8.png" alt="Screenshot_8" width="300"/>
+  <img src="screenshots/9.png" alt="Screenshot_9" width="300"/>
+</p>
+
 
 
 
