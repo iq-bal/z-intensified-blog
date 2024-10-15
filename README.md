@@ -1,12 +1,3 @@
-![Screenshot_1](screenshots/1.png)
-![Screenshot_2](screenshots/2.png)
-![Screenshot_3](screenshots/3.png)
-![Screenshot_4](screenshots/4.png)
-![Screenshot_5](screenshots/5.png)
-![Screenshot_6](screenshots/6.png)
-![Screenshot_7](screenshots/7.png)
-![Screenshot_8](screenshots/8.png)
-![Screenshot_9](screenshots/9.png)
 
 ---
 
@@ -58,6 +49,20 @@ Z Intensified Blog is a modern blogging platform designed for Gen-Z users, offer
 ## Contributing
 
 We welcome contributions! Feel free to submit pull requests or raise issues.
+
+##Screenshots
+
+![Screenshot_1](screenshots/1.png)
+![Screenshot_2](screenshots/2.png)
+![Screenshot_3](screenshots/3.png)
+![Screenshot_4](screenshots/4.png)
+![Screenshot_5](screenshots/5.png)
+![Screenshot_6](screenshots/6.png)
+![Screenshot_7](screenshots/7.png)
+![Screenshot_8](screenshots/8.png)
+![Screenshot_9](screenshots/9.png)
+
+
 
 ## License
 
